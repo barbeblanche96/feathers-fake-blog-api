@@ -1,5 +1,7 @@
 import { feathers } from '@feathersjs/feathers'
 import authenticationClient from '@feathersjs/authentication-client'
+const todosServiceMethods = ['find', 'get', 'create', 'update', 'patch', 'remove']
+
 const commentsServiceMethods = ['find', 'get', 'create', 'update', 'patch', 'remove']
 
 const postsServiceMethods = ['find', 'get', 'create', 'update', 'patch', 'remove']
@@ -32,6 +34,10 @@ export const createClient = (connection, authenticationOptions = {}) => {
 
   client.use('comments', connection.service('comments'), {
     methods: commentsServiceMethods
+  })
+
+  client.use('todos', connection.service('todos'), {
+    methods: todosServiceMethods
   })
 
   return client

@@ -1,8 +1,7 @@
 import { KnexService } from '@feathersjs/knex'
 
 // By default calls the standard Knex adapter service methods but can be customized with your own functionality.
-export class PostsService extends KnexService {
-
+export class TodosService extends KnexService {
   setup(app) {
     this.app = app;
   }
@@ -11,17 +10,16 @@ export class PostsService extends KnexService {
 
     const sqliteClient = this.app.get('sqliteClient');
 
-    let createPost = await sqliteClient.table('posts').insert(data).returning('id')
+    let createTodo = await sqliteClient.table('todos').insert(data).returning('id')
 
-    return await sqliteClient.table('posts').where('id', createPost[0].id).first();
+    return await sqliteClient.table('todos').where('id', createTodo[0].id).first();
   }
-
 }
 
 export const getOptions = (app) => {
   return {
-    paginate: app.get('paginate'),
+    paginate: false,
     Model: app.get('sqliteClient'),
-    name: 'posts'
+    name: 'todos'
   }
 }

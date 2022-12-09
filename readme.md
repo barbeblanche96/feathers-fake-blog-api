@@ -23,11 +23,7 @@ This project uses [Feathers](http://feathersjs.com). An open source framework fo
     npm start
     ```
 
-4. Using the api
-
-    ```
-    Navigate to the [Documentation](https://documenter.getpostman.com/view/3550891/2s8YzS13a7) to see how to use the endpoints
-    ```
+4. Navigate to the [Documentation](https://documenter.getpostman.com/view/3550891/2s8YzS13a7) to see how to use the endpoints
 
 ## Testing
 
